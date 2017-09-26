@@ -8,6 +8,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     public TextView  textViewliked, textViewdisliked;
     public int likeCount = 0, dislikeCount = 0 ;
+    public String likeSave = "like";
+    public String dislikeSave = "dislike";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,4 +36,21 @@ public class MainActivity extends AppCompatActivity {
         textViewdisliked.setText(Integer.toString(likeCount));
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(likeSave,likeCount);
+        outState.putInt(dislikeSave,dislikeCount);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        int like_save = savedInstanceState.getInt(likeSave);
+        int dislike_save = savedInstanceState.getInt(dislikeSave);
+        textViewliked.setText(Integer.toString(like_save));
+        textViewdisliked.setText(Integer.toString(dislike_save));
+        likeCount = like_save;
+        dislikeCount = dislike_save;
+    }
 }

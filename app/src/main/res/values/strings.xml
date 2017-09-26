@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Counter2</string>
+    <string name="_0">0</string>
+    <string name="like">Like</string>
+    <string name="dislike">DisLike</string>
+    <string name="reset">Reset</string>
 </resources>
