@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    public TextView  textViewliked, textViewdisliked;
+    public TextView  textViewLiked, textViewDisliked;
     public int likeCount = 0, dislikeCount = 0 ;
     public String likeSave = "like";
     public String dislikeSave = "dislike";
@@ -15,25 +15,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textViewdisliked = (TextView) findViewById(R.id.dislikeText);
-        textViewliked = (TextView) findViewById(R.id.likeText);
+        textViewDisliked = (TextView) findViewById(R.id.dislikeText);
+        textViewLiked = (TextView) findViewById(R.id.likeText);
     }
 
     public void liked(View view) {
         likeCount++;
-        textViewliked.setText(Integer.toString(likeCount));
+        textViewLiked.setText(Integer.toString(likeCount));
     }
 
     public void disliked(View view) {
         dislikeCount++;
-        textViewdisliked.setText(Integer.toString(dislikeCount));
+        textViewDisliked.setText(Integer.toString(dislikeCount));
     }
 
     public void resetB(View view) {
         dislikeCount = 0;
         likeCount = 0;
-        textViewliked.setText(Integer.toString(dislikeCount));
-        textViewdisliked.setText(Integer.toString(likeCount));
+        textViewLiked.setText(Integer.toString(dislikeCount));
+        textViewDisliked.setText(Integer.toString(likeCount));
     }
 
     @Override
@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         int like_save = savedInstanceState.getInt(likeSave);
         int dislike_save = savedInstanceState.getInt(dislikeSave);
-        textViewliked.setText(Integer.toString(like_save));
-        textViewdisliked.setText(Integer.toString(dislike_save));
+        textViewLiked.setText(Integer.toString(like_save));
+        textViewDisliked.setText(Integer.toString(dislike_save));
         likeCount = like_save;
         dislikeCount = dislike_save;
     }
