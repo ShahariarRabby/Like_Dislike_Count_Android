@@ -7,8 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    public final String save_value_like = "Save";
-    public final String save_value_dlike = "dSave";
+    public final String save_value_like = "LikeSave";
+    public final String save_value_dislike = "DislikeSave";
     public Button likeButton, dislikeButton, resetButton;
     public TextView likeText;
     public TextView dislikeText;
@@ -58,18 +58,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putString(save_value_like, likeText.getText().toString());
-        outState.putString(save_value_dlike, dislikeText.getText().toString());
+        outState.putString(save_value_dislike, dislikeText.getText().toString());
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        String save = savedInstanceState.getString(save_value_like);
-        String save1 = savedInstanceState.getString(save_value_dlike);
-        like = Integer.parseInt(save);
-        dislike = Integer.parseInt(save1);
-        likeText.setText(save);
-        dislikeText.setText(save1);
+        String saveLike = savedInstanceState.getString(save_value_like);
+        String saveDislike = savedInstanceState.getString(save_value_dislike);
+        like = Integer.parseInt(saveLike);
+        dislike = Integer.parseInt(saveDislike);
+        likeText.setText(saveLike);
+        dislikeText.setText(saveDislike);
     }
 }
